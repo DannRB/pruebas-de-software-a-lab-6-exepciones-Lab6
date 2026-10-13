@@ -1,6 +1,6 @@
 
 import pytest
-from Exceptions import ExceptionsDemo, MyException
+from Exceptions_original import ExceptionsDemo, MyException
 
 
 @pytest.mark.unit
@@ -18,12 +18,13 @@ def test_divide_type_error():
 
 
 @pytest.mark.unit
-@pytest.mark.unit
 def test_index_type_error():
     demo = ExceptionsDemo()
-    with pytest.raises((TypeError, IndexError)):
-        demo.access_list([3, 5, 4], 1)
+
+    with pytest.raises(IndexError):
         demo.access_list([3, 5, 4], 7)
+
+    with pytest.raises(TypeError):
         demo.access_list([3, 5, 4], '5')
 
 
